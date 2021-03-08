@@ -52,7 +52,7 @@ Book store API contains the `stores`, `books`, `countries` and `authors` resourc
         - `fullName`
         
 API endpoint that you will need for most of the tasks is: `http://localhost:3000/stores`. This endpoint will return all store resources and related resources within `included` array.
-If you need any other endpint check JSON:API specification. 
+If you need any other endpint, check the JSON:API specification. 
 
 #### Running API:
 - Clone this repo locally

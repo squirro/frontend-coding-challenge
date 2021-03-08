@@ -56,7 +56,7 @@ If you need any other endpint, check the JSON:API specification.
 
 #### Running API:
 - Clone this repo locally
-- `cd` inside `api` folder and run `npm install`
+- `cd` inside `book-store-api` folder and run `npm install`
 - serve it on the port 3000 by running `npm run start`
 
 

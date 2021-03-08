@@ -10,7 +10,7 @@ Your goal is to present the data (that you receive from the API) as shown in the
 
 
 
-####Each circle marker represents specific task:
+#### Each circle marker represents specific task:
 1. book store image as a circle
 2. list of maximum of 2 books ordered by the number of copies sold. If there are no books show "No data available".
 3. Book store rating displayed with the stars. When user selects/clicks on the stars rating, it should be updated on the API side.

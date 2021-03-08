@@ -2,7 +2,7 @@
 
 Welcome to Squirro coding challenge! Your task is to create an APP with the book stores listing. 
 
-This repo contains JSON:API based application which should be used as the main source of book store data. API is located within `book-store-api` folder and in the section below you will find more information on how to run/use it.
+This repo contains JSON:API based application which should be used as the main source of book store data. API is located within `book-store-api` folder. Within the section below you will find more information on how to run/use `book-store-api`.
 
 Your goal is to present data that you receive from the API as shown in the wireframe:
 

@@ -59,6 +59,10 @@ If you need any other endpint, check the JSON:API specification.
 - `cd` inside `book-store-api` folder and run `npm install`
 - serve it on the port 3000 by running `npm run start`
 
+#### Commiting:
+- Please do not open pull requests against our repository!
+- Instead, create your own repository and send that over
+
 
 Rules
 - You can choose between Backbone and React as your main framework

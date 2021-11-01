@@ -1,0 +1,35 @@
+@import "styles/colors";
+@import "styles/mixins";
+
+.Books {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+
+    article {
+      max-width: 130px;
+
+      &:not(:last-child) {
+        padding-right: 1em;
+      }
+    }
+  }
+}
+
+.Book {
+  img {
+    width: 115px;
+    border-radius: 5px;
+    @include shadow;
+  }
+
+  &__name {
+    font-size: small;
+    color: $color-white;
+  }
+
+  &__author {
+    font-size: x-small;
+    color: $color-white;
+  }
+}

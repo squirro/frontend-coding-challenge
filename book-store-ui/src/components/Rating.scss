@@ -1,14 +1,30 @@
+$color-star-gold: #f5bf00;
+$color-star-gray: #e8e8e8;
+
 .rating {
   display: flex;
   margin-top: 12px;
 
+  .rating__item:hover ~ .rating__item {
+    transform: scale(1);
+    color: $color-star-gray;
+  }
+
   &__item {
-    color: #E8E8E8;
+    color: $color-star-gray;
     margin-right: 2px;
     cursor: pointer;
+    transition: transform 0.3s;
 
     &--active {
-      color: #F5BF00;
+      color: $color-star-gold;
+    }
+  }
+
+  &:hover {
+    .rating__item {
+      transform: scale(1.2) rotate(72deg);
+      color: $color-star-gold;
     }
   }
 }

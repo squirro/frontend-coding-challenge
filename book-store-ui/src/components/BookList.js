@@ -8,10 +8,10 @@ const byCopiesSold = (a, b) => b.copiesSold - a.copiesSold;
 
 const BOOKS_RENDER = 2;
 
-const BookList = ({books}) => {
-  const title = books?.length ? 'Best-selling books:' : 'No data available';
+const BookList = ({books = []}) => {
+  const title = books.length ? 'Best-selling books:' : 'No data available';
 
-  const items = (books || [])
+  const items = books
     .sort(byCopiesSold)
     .slice(0, BOOKS_RENDER)
     .map((book) => {

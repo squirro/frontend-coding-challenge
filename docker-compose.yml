@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  backend:
+    container_name: flamenkito__book-store-api
+    build:
+      context: ./book-store-api
+      dockerfile: ./Dockerfile
+    image: "flamenkito/book-store-api"
+    ports:
+      - "8000:8000"
+  frontend:
+    container_name: flamenkito__book-store-ui
+    build:
+      context: ./book-store-ui
+      dockerfile: ./Dockerfile
+    image: "flamenkito/book-store-ui"
+    ports:
+      - "3000:3000"

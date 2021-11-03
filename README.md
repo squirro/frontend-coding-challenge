@@ -71,11 +71,28 @@ If you need any other endpint, check the JSON:API specification.
 - Application presentation must be done by responsive web design principles.
 - Write CSS from scratch, please do not use Bootstrap and similar.
 
-#### Happy coding and thank you for applying to Squirro!
+### Project implementation
 
-                
+### Project startup
 
+Run it in docker (UI could be found on http://localhost:3000)
 
+```bash
+docker-compose up --detach
+```
 
+Or separately start API (on http://localhost:8000)
 
+```bash
+cd ./book-store-api
+npm ci
+npm start
+```
 
+And UI (on http://localhost:3000)
+
+```bash
+cd ./book-store-ui
+npm ci
+npm start
+```

@@ -1,7 +1,8 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 // feature
-import {parseDate} from '../utils/parse-date';
-import {useIntersectionObserver} from '../hooks/use-intersection-observer';
+import { parseDate } from '../utils/parse-date';
+import { useIntersectionObserver } from '../hooks/use-intersection-observer';
 // components
 import Rating from './Rating';
 import Flag from './Flag';
@@ -16,7 +17,7 @@ const isObsolete = (timestamp) => {
   return Date.now() - timestamp > OBSOLETE_MS;
 };
 
-const Store = ({loading, timestamp, store, updateStore, fetchStore}) => {
+const Store = ({ loading, timestamp, store, updateStore, fetchStore }) => {
   const [containerRef, visible, hiddenBefore] = useIntersectionObserver();
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Store = ({loading, timestamp, store, updateStore, fetchStore}) => {
   }, [visible, hiddenBefore, timestamp, store, fetchStore]);
 
   const setStoreRating = (id) => async (rating) => {
-    void updateStore({id, attributes: {rating}});
+    void updateStore({ id, attributes: { rating } });
   };
 
   const establishmentDate = parseDate(store.establishmentDate);
@@ -65,6 +66,14 @@ const Store = ({loading, timestamp, store, updateStore, fetchStore}) => {
       </div>
     </div>
   );
+};
+
+Store.propTypes = {
+  loading: PropTypes.bool,
+  timestamp: PropTypes.number,
+  store: PropTypes.object,
+  updateStore: PropTypes.func,
+  fetchStore: PropTypes.func,
 };
 
 export default Store;

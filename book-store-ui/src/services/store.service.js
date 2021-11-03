@@ -1,3 +1,3 @@
-import {createService} from './create-service';
+import { createService } from './create-service';
 
 export const StoreService = createService('stores');

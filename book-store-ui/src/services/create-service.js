@@ -24,11 +24,11 @@ export const createService = (endpoint) => {
     fetchOne: (id) => {
       return fetch(`${API_URL}/${endpoint}/${id}`).then(parseResponse);
     },
-    updateOne: ({id, attributes}) => {
+    updateOne: ({ id, attributes }) => {
       return fetch(`${API_URL}/${endpoint}/${id}`, {
         method: 'PATCH',
         headers,
-        body: JSON.stringify({data: {attributes}}),
+        body: JSON.stringify({ data: { attributes } }),
       }).then(parseResponse);
     },
   };

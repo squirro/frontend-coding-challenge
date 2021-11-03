@@ -1,4 +1,4 @@
-import {resolveRelationships} from './resolve-relationships';
+import { resolveRelationships } from './resolve-relationships';
 
 describe('resolve-relationships', () => {
   it('should resolve all nested relationships', () => {

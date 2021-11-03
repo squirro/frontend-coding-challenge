@@ -1,6 +1,6 @@
 FROM node:14-alpine
 
-LABEL version="1.0"
+LABEL version="0.1.0"
 LABEL description="Book Store UI"
 
 WORKDIR /app

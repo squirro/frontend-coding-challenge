@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 // feature
 // components
 // styles
 
-const Flag = ({code, className}) => {
+const Flag = ({ code, className }) => {
   if (!code) {
     return null;
   }
@@ -10,6 +11,11 @@ const Flag = ({code, className}) => {
   const image = code.toLowerCase();
   const createURL = (type) => `https://flagcdn.com/${type}/${image}.png`;
   return <img className={className} src={createURL('64x48')} width="100%" alt={image} />;
+};
+
+Flag.propTypes = {
+  code: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Flag;

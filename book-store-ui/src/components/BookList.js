@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // feature
 // components
 import Book from './Book';
@@ -8,7 +9,7 @@ const byCopiesSold = (a, b) => b.copiesSold - a.copiesSold;
 
 const BOOKS_RENDER = 2;
 
-const BookList = ({books = []}) => {
+const BookList = ({ books = [] }) => {
   const title = books.length ? 'Best-selling books:' : 'No data available';
 
   const items = books
@@ -24,6 +25,10 @@ const BookList = ({books = []}) => {
       <div className="book-list__items">{items}</div>
     </div>
   );
+};
+
+BookList.propTypes = {
+  books: PropTypes.array,
 };
 
 export default BookList;

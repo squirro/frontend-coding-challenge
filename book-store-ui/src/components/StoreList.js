@@ -1,6 +1,6 @@
 // feature
-import {useApi} from '../hooks/use-api';
-import {StoreService} from '../services/store.service';
+import { useApi } from '../hooks/use-api';
+import { StoreService } from '../services/store.service';
 // components
 import Store from './Store';
 import Loading from './Loading';

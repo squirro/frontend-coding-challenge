@@ -16,6 +16,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -24,15 +25,9 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
     "prettier": "^2.4.1",
     "sass": "^1.43.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:prettier/recommended"
-    ]
   },
   "name": "book-store-ui",
   "private": true,
@@ -41,13 +36,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint .",
-    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
-  },
-  "prettier": {
-    "printWidth": 120,
-    "bracketSpacing": false,
-    "trailingComma": "es5",
-    "singleQuote": true
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.json"
   },
   "version": "0.1.0"
 }

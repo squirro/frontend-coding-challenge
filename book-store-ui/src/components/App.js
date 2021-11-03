@@ -1,23 +1,17 @@
-import {useMany} from '../hooks/use-many';
-import {StoreService} from '../services/store.service';
+// feature
 // components
-import Navigation from './Navigation';
-import Stores from './Stores';
-import Loading from './Loading';
+import StoreList from './StoreList';
 // styles
 import './App.scss';
 
-function App() {
-  const [stores, loading, updateStore, fetchStore] = useMany(StoreService);
-
+const App = () => {
   return (
-    <div className="App">
-      <Navigation />
-      <Loading loading={loading}>
-        <Stores stores={stores} updateStore={updateStore} fetchStore={fetchStore} />
-      </Loading>
+    <div className="wrapper">
+      <div className="container">
+        <StoreList />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

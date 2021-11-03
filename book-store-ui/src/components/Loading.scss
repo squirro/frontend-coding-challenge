@@ -1,0 +1,24 @@
+@use 'sass:math';
+
+$loading-radius: 2rem;
+
+.Loading {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      position: relative;
+      top: calc(50% - #{$loading-radius});
+      left: calc(50% - #{$loading-radius});
+      width: $loading-radius * 2;
+    }
+  }
+}

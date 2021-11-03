@@ -1,0 +1,46 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: .2s;
+
+  &__cover {
+    width: 60px;
+    height: 85px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-bottom: 4px;
+  }
+
+  &__name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #151515;
+    transition: .2s;
+    max-width: 80px;
+  }
+
+  &__author {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #151515;
+    opacity: .6;
+    text-decoration: none;
+  }
+
+  .book:last-child {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 414px)  {
+  .book__cover {
+    width: 70px;
+    height: 98px;
+  }
+}

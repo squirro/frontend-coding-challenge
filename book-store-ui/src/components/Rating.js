@@ -1,21 +1,23 @@
+// feature
+// components
+// styles
 import './Rating.scss';
 
-const length = 5;
+const STARS_TOTAL = 5;
 
 const Rating = ({rating, setRating}) => {
-  const handleClick = (value) => () => setRating(value);
+  const handleClick = (index) => () => setRating(index + 1);
 
-  const stars = Array.from({length}).map((_, index) => {
-    const value = length - index;
-    const checked = value === rating ? 'checked' : '';
-    return <span key={index} className={checked} onClick={handleClick(value)} />;
+  const stars = Array.from({length: STARS_TOTAL}).map((_, index) => {
+    const active = index < rating ? 'rating__item--active' : '';
+    return (
+      <span className={`material-icons rating__item ${active}`} onClick={handleClick(index)} key={index}>
+        star
+      </span>
+    );
   });
 
-  return (
-    <div className="Rating" onChange={setRating}>
-      {stars}
-    </div>
-  );
+  return <div className="rating">{stars}</div>;
 };
 
 export default Rating;

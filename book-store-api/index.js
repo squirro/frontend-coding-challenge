@@ -1,5 +1,5 @@
 const FakeServer = require('fake-json-api-server/src/nodeServer');
-const config = require('../config/api');
+const config = require('../book-store-frontend/src/config/api');
 
 new FakeServer({
   storageKey: 'fakeServerStorage',

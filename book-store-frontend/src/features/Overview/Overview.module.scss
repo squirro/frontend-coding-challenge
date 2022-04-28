@@ -1,0 +1,9 @@
+@import "../../styles/variables.scss";
+
+.wrapper {
+  padding: $spacing-base * 4;
+}
+
+.store + .store {
+  margin-top: $spacing-base * 2;
+}

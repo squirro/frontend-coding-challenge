@@ -1,4 +1,4 @@
-import React, { ReactElement, FC } from 'react';
+import { ReactElement, FC } from 'react';
 import { default as BookStore } from '../BookStore';
 import { OverviewProps } from './Overview.types';
 import styles from './Overview.module.scss';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useGetStoresDataQuery } from './app/api';
 import { default as Overview } from './features/Overview';
 

@@ -1,5 +1,7 @@
-import React, { ReactElement, FC } from 'react';
+import { ReactElement, FC, ChangeEvent } from 'react';
 import formatDate from '../../libs/formatDate';
+import Rating from '../Rating';
+import Bestseller from '../Bestseller';
 import { BookStoreProps } from './BookStore.types';
 import styles from './BookStore.module.scss';
 
@@ -20,19 +22,15 @@ const BookStoresOverview: FC<BookStoreProps> = ({
         <div className={styles.details}>
           <div className={styles.header}>
             <h2>{name}</h2>
-            <span>Rating</span>
+            <Rating
+              storeName={name}
+              currentRating={rating}
+              onAddRating={(e: ChangeEvent<HTMLInputElement>) => {
+                console.log(e.target.value);
+              }}
+            />
           </div>
-          <table>
-            <caption>Best-selling books</caption>
-            <tbody>
-              {books.map(({ name, author }: any) => (
-                <tr>
-                  <td>{name}</td>
-                  <td>{author}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <Bestseller books={books} />
         </div>
       </div>
       <div className={styles.footer}>

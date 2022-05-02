@@ -20,7 +20,7 @@ const Rating: FC<RatingProps> = ({
         {[...Array(RATING_RANGE.max)].map((_, i) => {
           const groupName = `${storeName}-rating`;
           const id = `${groupName}${i}`;
-          const isSelected = currentRating === i + 1;
+          const isSelected = currentRating === i + RATING_RANGE.min;
           const rating = RATING_RANGE.max - i;
 
           return (

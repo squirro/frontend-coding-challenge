@@ -2,9 +2,9 @@ import { useGetStoresDataQuery } from './app/api';
 import { default as Overview } from './features/Overview';
 
 const App = () => {
-  const { data, isLoading } = useGetStoresDataQuery('');
+  const { data: stores } = useGetStoresDataQuery('');
 
-  return <Overview stores={isLoading ? [] : data.data} />;
+  return <Overview stores={stores?.data || []} />;
 };
 
 export default App;

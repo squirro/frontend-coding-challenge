@@ -72,6 +72,10 @@
 }
 
 .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: $spacing-base * 2;
   margin: $spacing-base * 2;
 
   @include responsive {

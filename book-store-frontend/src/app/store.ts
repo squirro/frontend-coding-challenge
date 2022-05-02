@@ -1,12 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { storesApi } from './api';
+import { API } from './api';
 
 export const store = configureStore({
   reducer: {
-    [storesApi.reducerPath]: storesApi.reducer,
+    [API.reducerPath]: API.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(storesApi.middleware);
+    return getDefaultMiddleware().concat(API.middleware);
   },
 });
 

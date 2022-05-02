@@ -1,4 +1,4 @@
 export type DataEntry = {
-  id: number;
+  id: string;
   type: string;
 };

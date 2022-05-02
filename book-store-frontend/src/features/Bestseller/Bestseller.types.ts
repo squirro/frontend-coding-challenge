@@ -1,3 +1,3 @@
 export type BestsellerProps = {
-  books: Array<any>;
+  books: Array<string>;
 };

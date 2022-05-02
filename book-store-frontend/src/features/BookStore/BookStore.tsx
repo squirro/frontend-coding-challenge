@@ -2,14 +2,19 @@ import { type ReactElement, type FC, type ChangeEvent } from 'react';
 import Rating from '../Rating';
 import Bestseller from '../Bestseller';
 import StoreMeta from '../StoreMeta';
+import CountryFlag from '../CountryFlag';
 import type { BookStoreProps } from './BookStore.types';
 import styles from './BookStore.module.scss';
 
 const BookStore: FC<BookStoreProps> = ({
-  attributes: { name, storeImage, establishmentDate, website, rating },
+  name,
+  storeImage,
+  establishmentDate,
+  website,
+  rating,
+  books,
+  countryId,
 }: BookStoreProps): ReactElement => {
-  const books = [{}];
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.detailsWrapper}>
@@ -34,6 +39,7 @@ const BookStore: FC<BookStoreProps> = ({
       </div>
       <div className={styles.footer}>
         <StoreMeta date={establishmentDate} website={website} />
+        <CountryFlag id={countryId} />
       </div>
     </div>
   );

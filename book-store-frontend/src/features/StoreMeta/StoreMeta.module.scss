@@ -2,5 +2,15 @@
 
 .divider {
   display: inline-block;
-  margin: 0 $spacing-base;
+  margin: 0 ($spacing-base * 2);
+}
+
+.link {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+
+  &:focus,
+  &:hover {
+    border-color: inherit;
+  }
 }

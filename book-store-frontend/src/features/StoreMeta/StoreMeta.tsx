@@ -13,7 +13,9 @@ const StoreMeta: FC<StoreMetaProps> = ({
     <div>
       <time dateTime={date}>{displayDate}</time>
       <span className={styles.divider}>-</span>
-      <a href={website}>{website}</a>
+      <a className={styles.link} href={website}>
+        {website}
+      </a>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import { Fragment, type ReactElement, type FC } from 'react';
 import classNames from 'classnames';
-import { VisuallyHidden } from '@accessible/visually-hidden';
 import type { RatingProps } from './Rating.types';
 import styles from './Rating.module.scss';
 
@@ -15,17 +14,20 @@ const Rating: FC<RatingProps> = ({
   onAddRating,
 }: RatingProps): ReactElement => {
   return (
-    <fieldset className={styles.wrapper}>
-      {[...Array(RATING_RANGE.max)].map((_, i) => {
-        const groupName = `${storeName}-rating`;
-        const id = `${groupName}${i}`;
-        const isSelected = currentRating === i + 1;
+    <fieldset>
+      <legend className={styles.vh}>Rating ({currentRating})</legend>
+      <div className={styles.stars}>
+        {[...Array(RATING_RANGE.max)].map((_, i) => {
+          const groupName = `${storeName}-rating`;
+          const id = `${groupName}${i}`;
+          const isSelected = currentRating === i + 1;
+          const rating = RATING_RANGE.max - i;
 
-        return (
-          <Fragment key={id}>
-            <VisuallyHidden>
+          return (
+            <Fragment key={id}>
               <input
                 className={classNames(
+                  styles.vh,
                   styles.star,
                   isSelected && styles.star_current
                 )}
@@ -33,14 +35,16 @@ const Rating: FC<RatingProps> = ({
                 key={id}
                 name={groupName}
                 type="radio"
-                value={RATING_RANGE.max - i}
+                value={rating}
                 onChange={onAddRating}
               />
-            </VisuallyHidden>
-            <label htmlFor={id} className={styles.label}></label>
-          </Fragment>
-        );
-      })}
+              <label htmlFor={id} className={styles.label}>
+                <span className={styles.vh}>{rating}</span>
+              </label>
+            </Fragment>
+          );
+        })}
+      </div>
     </fieldset>
   );
 };

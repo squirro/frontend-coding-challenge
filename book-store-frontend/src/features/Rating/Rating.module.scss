@@ -1,6 +1,7 @@
 @import "../../styles/variables.scss";
+@import "../../styles/helpers.scss";
 
-.wrapper {
+.stars {
   display: flex;
   flex-direction: row-reverse;
   gap: $spacing-base;
@@ -37,4 +38,8 @@
       color: gold;
     }
   }
+}
+
+.vh {
+  @include visually-hidden;
 }

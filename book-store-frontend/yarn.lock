@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@accessible/visually-hidden@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@accessible/visually-hidden/-/visually-hidden-2.0.0.tgz#8d47c816061918026c9a6ad244d3e85067f41ac8"
-  integrity sha512-KZ8biE66BsU7ym5v40vvjLBpKZJMfFvx91bxnTMzlvPQTIrOF9YYVVlZf1nOQTIZqC/zEAZyX7lCvBb8joZmYA==
-
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"

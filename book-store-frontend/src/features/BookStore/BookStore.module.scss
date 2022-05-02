@@ -1,27 +1,47 @@
 @import "../../styles/variables.scss";
+@import "../../styles/helpers.scss";
 
 .wrapper {
-  padding: ($spacing-base * 3) ($spacing-base * 4);
-  border: 1px solid black;
+  overflow: hidden;
+  border: 1px solid gray;
+  box-shadow: 1px 2px 5px gray;
+  border-radius: $spacing-base * 2;
+
+  @include responsive {
+    padding: $spacing-base * 3;
+  }
 }
 
 .detailsWrapper {
   display: flex;
+  flex-direction: column;
+
+  @include responsive {
+    flex-direction: row;
+  }
 }
 
 .imageWrapper {
   flex: none;
   overflow: hidden;
-  width: 30%;
-  border-radius: 40%;
+
+  @include responsive {
+    width: 30%;
+    border-radius: $spacing-base * 2;
+  }
 }
 
 .imageFrame {
   position: relative;
-  padding-bottom: 100%;
+  padding-bottom: 56.25%;
+
+  @include responsive {
+    padding-bottom: 100%;
+  }
 }
 
 .image {
+  display: block;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -30,7 +50,11 @@
 
 .details {
   flex: 1;
-  margin-left: $spacing-base * 3;
+  margin: $spacing-base * 2;
+
+  @include responsive {
+    margin: 0 0 0 $spacing-base * 3;
+  }
 }
 
 .header {
@@ -39,6 +63,18 @@
   justify-content: space-between;
 }
 
+.title {
+  font-weight: bold;
+
+  @include responsive {
+    font-size: 1.5rem;
+  }
+}
+
 .footer {
-  margin-top: $spacing-base * 2;
+  margin: $spacing-base * 2;
+
+  @include responsive {
+    margin: ($spacing-base * 3) 0 0;
+  }
 }

@@ -20,7 +20,7 @@ const BookStore: FC<BookStoreProps> = ({
         </div>
         <div className={styles.details}>
           <div className={styles.header}>
-            <h2>{name}</h2>
+            <h2 className={styles.title}>{name}</h2>
             <Rating
               storeName={name}
               currentRating={rating}

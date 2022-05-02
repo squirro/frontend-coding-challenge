@@ -1,8 +1,8 @@
-import { ReactElement, FC } from 'react';
-import { default as BookStore } from '../BookStore';
-import { OverviewProps } from './Overview.types';
-import styles from './Overview.module.scss';
+import { type ReactElement, type FC } from 'react';
 import type { Store } from '../../types/Stores';
+import BookStore from '../BookStore';
+import type { OverviewProps } from './Overview.types';
+import styles from './Overview.module.scss';
 
 const Overview: FC<OverviewProps> = ({
   stores,

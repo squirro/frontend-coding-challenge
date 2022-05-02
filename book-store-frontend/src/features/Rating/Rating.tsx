@@ -1,7 +1,7 @@
-import { ReactElement, FC, Fragment } from 'react';
+import { Fragment, type ReactElement, type FC } from 'react';
 import classNames from 'classnames';
 import { VisuallyHidden } from '@accessible/visually-hidden';
-import { RatingProps } from './Rating.types';
+import type { RatingProps } from './Rating.types';
 import styles from './Rating.module.scss';
 
 export const RATING_RANGE = {

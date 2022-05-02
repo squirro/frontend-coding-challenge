@@ -1,5 +1,5 @@
-import { ReactElement, FC } from 'react';
-import { BestsellerProps } from './Bestseller.types';
+import { type ReactElement, type FC } from 'react';
+import type { BestsellerProps } from './Bestseller.types';
 
 const Bestseller: FC<BestsellerProps> = ({
   books,

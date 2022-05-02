@@ -21,6 +21,7 @@
 
 .label {
   color: gray;
+  cursor: pointer;
 
   &::before {
     content: "★";

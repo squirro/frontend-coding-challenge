@@ -1,14 +1,13 @@
-import { ReactElement, FC, ChangeEvent } from 'react';
-import formatDate from '../../libs/formatDate';
+import { type ReactElement, type FC, type ChangeEvent } from 'react';
 import Rating from '../Rating';
 import Bestseller from '../Bestseller';
-import { BookStoreProps } from './BookStore.types';
+import StoreMeta from '../StoreMeta';
+import type { BookStoreProps } from './BookStore.types';
 import styles from './BookStore.module.scss';
 
-const BookStoresOverview: FC<BookStoreProps> = ({
+const BookStore: FC<BookStoreProps> = ({
   attributes: { name, storeImage, establishmentDate, website, rating },
 }: BookStoreProps): ReactElement => {
-  const displayDate = formatDate(establishmentDate);
   const books = [{}];
 
   return (
@@ -34,14 +33,10 @@ const BookStoresOverview: FC<BookStoreProps> = ({
         </div>
       </div>
       <div className={styles.footer}>
-        <span className={styles.meta}>
-          <time dateTime={establishmentDate}>{displayDate}</time>
-          <span className={styles.divider}>-</span>
-          <a href={website}>{website}</a>
-        </span>
+        <StoreMeta date={establishmentDate} website={website} />
       </div>
     </div>
   );
 };
 
-export default BookStoresOverview;
+export default BookStore;

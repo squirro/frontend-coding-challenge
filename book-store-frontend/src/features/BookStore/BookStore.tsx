@@ -1,4 +1,5 @@
 import { type ReactElement, type FC, type ChangeEvent } from 'react';
+import { useSetNewRatingMutation } from '../../app/api';
 import Rating from '../Rating';
 import Bestseller from '../Bestseller';
 import StoreMeta from '../StoreMeta';
@@ -7,6 +8,7 @@ import type { BookStoreProps } from './BookStore.types';
 import styles from './BookStore.module.scss';
 
 const BookStore: FC<BookStoreProps> = ({
+  id,
   name,
   storeImage,
   establishmentDate,
@@ -15,6 +17,8 @@ const BookStore: FC<BookStoreProps> = ({
   books,
   countryId,
 }: BookStoreProps): ReactElement => {
+  const [setNewRating] = useSetNewRatingMutation();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.detailsWrapper}>
@@ -30,7 +34,14 @@ const BookStore: FC<BookStoreProps> = ({
               storeName={name}
               currentRating={rating}
               onAddRating={(e: ChangeEvent<HTMLInputElement>) => {
-                console.log(e.target.value);
+                setNewRating({
+                  id,
+                  data: {
+                    id,
+                    type: 'stores',
+                    attributes: { rating: e.target.value },
+                  },
+                });
               }}
             />
           </div>

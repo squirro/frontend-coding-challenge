@@ -24,6 +24,7 @@ const Overview: FC<OverviewProps> = ({
           <div key={id} className={styles.store}>
             <BookStore
               {...attributes}
+              id={id}
               books={books}
               countryId={countryId || ''}
             />

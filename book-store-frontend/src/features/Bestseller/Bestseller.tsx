@@ -7,17 +7,24 @@ import styles from './Bestseller.module.scss';
 
 const Bestseller: FC<BestsellerProps> = ({
   books,
-}: BestsellerProps): ReactElement => {
-  const { data: booksData } = useGetBooksDataQuery('');
-  const { data: authorsData } = useGetAuthorsDataQuery('');
-  const bestsellers = booksData?.data
-    ?.filter((book: Book) => {
+}: BestsellerProps): ReactElement | null => {
+  const { data: booksData, isLoading: isLoadingBooks } =
+    useGetBooksDataQuery('');
+  const { data: authorsData, isLoading: isLoadingAuthors } =
+    useGetAuthorsDataQuery('');
+
+  if (isLoadingBooks || isLoadingAuthors) {
+    return null;
+  }
+
+  const bestsellers = booksData.data
+    .filter((book: Book) => {
       return books?.includes(book.id);
     })
-    ?.sort((prev: Book, next: Book) => {
+    .sort((prev: Book, next: Book) => {
       return next.attributes.copiesSold - prev.attributes.copiesSold;
     })
-    ?.splice(0, 2);
+    .splice(0, 2);
 
   return (
     <div className={styles.wrapper}>
@@ -34,7 +41,7 @@ const Bestseller: FC<BestsellerProps> = ({
                   },
                 },
               }: Book) => {
-                const author = authorsData?.data?.find(
+                const author = authorsData.data.find(
                   ({ id }: DataEntry) => id === authorId
                 );
 

@@ -10,7 +10,7 @@ const Overview: FC<OverviewProps> = ({
 }: OverviewProps): ReactElement => {
   return (
     <div className={styles.wrapper}>
-      {stores?.map(({ id, attributes, relationships }: Store): ReactElement => {
+      {stores.map(({ id, attributes, relationships }: Store): ReactElement => {
         const books = relationships?.books?.data?.reduce(
           (all: Array<string>, entry: DataEntry) => {
             all.push(entry.id);
@@ -18,8 +18,7 @@ const Overview: FC<OverviewProps> = ({
           },
           []
         );
-
-        const countryId = relationships?.countries?.data?.id;
+        const countryId = relationships.countries.data.id;
 
         return (
           <div key={id} className={styles.store}>

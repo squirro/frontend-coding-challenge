@@ -20,38 +20,42 @@ const Bestseller: FC<BestsellerProps> = ({
     ?.splice(0, 2);
 
   return (
-    <table className={styles.table}>
-      <caption className={styles.caption}>Best-selling books</caption>
-      <tbody>
-        {Array.isArray(bestsellers) && bestsellers.length > 0 ? (
-          bestsellers.map(
-            ({
-              attributes: { name },
-              relationships: {
-                author: {
-                  data: { id: authorId },
+    <div className={styles.wrapper}>
+      <table className={styles.table}>
+        <caption className={styles.caption}>Best-selling books</caption>
+        <tbody>
+          {Array.isArray(bestsellers) && bestsellers.length > 0 ? (
+            bestsellers.map(
+              ({
+                attributes: { name },
+                relationships: {
+                  author: {
+                    data: { id: authorId },
+                  },
                 },
-              },
-            }: Book) => {
-              const author = authorsData?.data?.find(
-                ({ id }: DataEntry) => id === authorId
-              );
+              }: Book) => {
+                const author = authorsData?.data?.find(
+                  ({ id }: DataEntry) => id === authorId
+                );
 
-              return (
-                <tr key={`${name}${author?.id}`}>
-                  <td>{name}</td>
-                  <td>{author?.attributes?.fullName}</td>
-                </tr>
-              );
-            }
-          )
-        ) : (
-          <tr>
-            <td>No data available</td>
-          </tr>
-        )}
-      </tbody>
-    </table>
+                return (
+                  <tr key={`${name}${author?.id}`}>
+                    <td className={styles.book}>{name}</td>
+                    <td className={styles.author}>
+                      {author?.attributes?.fullName}
+                    </td>
+                  </tr>
+                );
+              }
+            )
+          ) : (
+            <tr>
+              <td>No data available</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

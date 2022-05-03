@@ -4,27 +4,25 @@ import apiConfig from '../config/api.json';
 export const API = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: `${apiConfig.url}:${apiConfig.port}` }),
-  endpoints: (builder) => ({
-    getStoresData: builder.query({
+  endpoints: (build) => ({
+    getStoresData: build.query({
       query: () => `stores`,
     }),
-    getBooksData: builder.query({
+    getBooksData: build.query({
       query: () => `books`,
     }),
-    getAuthorsData: builder.query({
+    getAuthorsData: build.query({
       query: () => `authors`,
     }),
-    getCountriesData: builder.query({
-      query: () => `countries`,
-    }),
-    getBookById: builder.query({
-      query: (id: string) => `books/${id}`,
-    }),
-    getAuthorById: builder.query({
-      query: (id: string) => `authors/${id}`,
-    }),
-    getCountryById: builder.query({
+    getCountryById: build.query({
       query: (id: string) => `countries/${id}`,
+    }),
+    setNewRating: build.mutation({
+      query: ({ id, ...patch }) => ({
+        url: `stores/${id}`,
+        method: 'PATCH',
+        body: patch,
+      }),
     }),
   }),
 });
@@ -33,8 +31,6 @@ export const {
   useGetStoresDataQuery,
   useGetBooksDataQuery,
   useGetAuthorsDataQuery,
-  useGetCountriesDataQuery,
-  useGetBookByIdQuery,
-  useGetAuthorByIdQuery,
   useGetCountryByIdQuery,
+  useSetNewRatingMutation,
 } = API;

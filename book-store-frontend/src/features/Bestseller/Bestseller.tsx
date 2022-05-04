@@ -1,4 +1,5 @@
 import { type ReactElement, type FC } from 'react';
+import classNames from 'classnames';
 import { useGetBestsellers } from '../../app/hooks';
 import type { BestSeller } from '../../types/Books';
 import type { BestsellerProps } from './Bestseller.types';
@@ -16,14 +17,16 @@ const Bestseller: FC<BestsellerProps> = ({
         <tbody>
           {bestsellers.length > 0 ? (
             bestsellers.map(({ name, author }: BestSeller) => (
-              <tr key={name}>
-                <td className={styles.book}>{name}</td>
-                <td className={styles.author}>{author}</td>
+              <tr key={name} className={styles.row}>
+                <td className={classNames(styles.cell, styles.book)}>{name}</td>
+                <td className={classNames(styles.cell, styles.author)}>
+                  {author}
+                </td>
               </tr>
             ))
           ) : (
-            <tr>
-              <td>No data available</td>
+            <tr className={styles.row}>
+              <td className={styles.cell}>No data available</td>
             </tr>
           )}
         </tbody>

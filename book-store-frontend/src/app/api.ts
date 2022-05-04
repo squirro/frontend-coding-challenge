@@ -1,9 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import apiConfig from '../config/api.json';
+import endpoints from '../config/endpoints.json';
 
 export const API = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: `${apiConfig.url}:${apiConfig.port}` }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: `${endpoints.api.url}:${endpoints.api.port}`,
+  }),
   endpoints: (build) => ({
     getStoresData: build.query({
       query: () => `stores`,
@@ -18,11 +20,21 @@ export const API = createApi({
       query: (id: string) => `countries/${id}`,
     }),
     setNewRating: build.mutation({
-      query: ({ id, ...patch }) => ({
-        url: `stores/${id}`,
-        method: 'PATCH',
-        body: patch,
-      }),
+      query: ({ id, rating }) => {
+        const patch = {
+          data: {
+            id,
+            type: 'stores',
+            attributes: { rating },
+          },
+        };
+
+        return {
+          url: `stores/${id}`,
+          method: 'PATCH',
+          body: patch,
+        };
+      },
     }),
   }),
 });

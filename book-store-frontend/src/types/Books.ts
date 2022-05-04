@@ -1,5 +1,10 @@
 import { type DataEntry } from './Base';
 
+export type BestSeller = {
+  name: string;
+  author: string;
+};
+
 export type BookAttributes = {
   name: string;
   copiesSold: number;

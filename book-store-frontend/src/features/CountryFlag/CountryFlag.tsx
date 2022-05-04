@@ -1,25 +1,19 @@
 import { type ReactElement, type FC } from 'react';
-import countryConfig from '../../config/countryflags.json';
-import { useGetCountryByIdQuery } from '../../app/api';
+import endpoints from '../../config/endpoints.json';
+import { useGetCountryCodeById } from '../../app/hooks';
 import type { CountryFlagProps } from './CountryFlag.types';
 import styles from './CountryFlag.module.scss';
 
 const CountryFlag: FC<CountryFlagProps> = ({ id }): ReactElement | null => {
-  const { data: country, isLoading } = useGetCountryByIdQuery(id);
+  const code = useGetCountryCodeById(id);
 
-  if (isLoading) {
-    return null;
-  }
-
-  const code = country.data.attributes.code;
-
-  return (
+  return code ? (
     <img
       className={styles.flag}
-      src={`${countryConfig.endpoint}${code}`}
+      src={`${endpoints.countryFlags.url}${code}`}
       alt={code}
     />
-  );
+  ) : null;
 };
 
 export default CountryFlag;

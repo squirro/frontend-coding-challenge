@@ -1,9 +1,9 @@
 const FakeServer = require('fake-json-api-server/src/nodeServer');
-const config = require('../book-store-frontend/src/config/api');
+const config = require('../book-store-frontend/src/config/endpoints.json');
 
 new FakeServer({
   storageKey: 'fakeServerStorage',
-  port: config.port,
+  port: config.api.port,
   resources: {
     stores: {
       data: [

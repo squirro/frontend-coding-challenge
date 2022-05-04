@@ -36,11 +36,7 @@ const BookStore: FC<BookStoreProps> = ({
               onAddRating={(e: ChangeEvent<HTMLInputElement>) => {
                 setNewRating({
                   id,
-                  data: {
-                    id,
-                    type: 'stores',
-                    attributes: { rating: e.target.value },
-                  },
+                  rating: e.target.value,
                 });
               }}
             />

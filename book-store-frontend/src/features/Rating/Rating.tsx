@@ -34,13 +34,12 @@ const Rating: FC<RatingProps> = ({
                   isSelected && styles.star_current
                 )}
                 id={id}
-                key={id}
                 name={groupName}
                 type="radio"
                 value={rating}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   setNewRating({
-                    id,
+                    id: i,
                     rating: e.target.value,
                   });
                 }}

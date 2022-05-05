@@ -1,5 +1,5 @@
-import { type ReactElement, type FC, type ChangeEvent } from 'react';
-import { useSetNewRatingMutation } from '../../app/api';
+import { type ReactElement, type FC } from 'react';
+import { useGetBestsellers } from '../../app/hooks';
 import Rating from '../Rating';
 import Bestseller from '../Bestseller';
 import StoreMeta from '../StoreMeta';
@@ -17,7 +17,7 @@ const BookStore: FC<BookStoreProps> = ({
   books,
   countryId,
 }: BookStoreProps): ReactElement => {
-  const [setNewRating] = useSetNewRatingMutation();
+  const bestsellers = useGetBestsellers(books);
 
   return (
     <div className={styles.wrapper}>
@@ -30,18 +30,9 @@ const BookStore: FC<BookStoreProps> = ({
         <div className={styles.details}>
           <div className={styles.header}>
             <h2 className={styles.title}>{name}</h2>
-            <Rating
-              storeName={name}
-              currentRating={rating}
-              onAddRating={(e: ChangeEvent<HTMLInputElement>) => {
-                setNewRating({
-                  id,
-                  rating: e.target.value,
-                });
-              }}
-            />
+            <Rating storeName={name} currentRating={rating} />
           </div>
-          <Bestseller books={books} />
+          <Bestseller books={bestsellers} />
         </div>
       </div>
       <div className={styles.footer}>

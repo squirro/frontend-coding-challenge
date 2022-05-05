@@ -2,17 +2,17 @@ import { type DataEntry } from './Base';
 
 export type StoreAttributes = {
   name: string;
-  establishmentDate: string;
+  website: string;
   rating: number;
   storeImage: string;
-  website: string;
+  establishmentDate: string;
 };
 
 export type StoreRelationships = {
   countries: {
     data: DataEntry;
   };
-  books: {
+  books?: {
     data: Array<DataEntry>;
   };
 };

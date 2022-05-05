@@ -1,5 +1,6 @@
-import { Fragment, type ReactElement, type FC } from 'react';
+import { Fragment, type ReactElement, type FC, type ChangeEvent } from 'react';
 import classNames from 'classnames';
+import { useSetNewRatingMutation } from '../../app/api';
 import type { RatingProps } from './Rating.types';
 import styles from './Rating.module.scss';
 
@@ -11,8 +12,9 @@ export const RATING_RANGE = {
 const Rating: FC<RatingProps> = ({
   storeName,
   currentRating,
-  onAddRating,
 }: RatingProps): ReactElement => {
+  const [setNewRating] = useSetNewRatingMutation();
+
   return (
     <fieldset>
       <legend className={styles.vh}>Rating ({currentRating})</legend>
@@ -36,7 +38,12 @@ const Rating: FC<RatingProps> = ({
                 name={groupName}
                 type="radio"
                 value={rating}
-                onChange={onAddRating}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  setNewRating({
+                    id,
+                    rating: e.target.value,
+                  });
+                }}
               />
               <label htmlFor={id} className={styles.label}>
                 <span className={styles.vh}>{rating}</span>

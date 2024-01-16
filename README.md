@@ -13,7 +13,7 @@ Your goal is to present the data (that you receive from the API) as shown in the
 #### Each circle marker represents a specific task:
 1. Circle with the Book store image.
 2. List with a maximum of 2 books ordered by the number of copies sold. In case there are no books, please display a "No data available" message.
-3. Book store rating represented in stars. The interaction with the rating should update its correspondent entry in the API.
+3. Book store rating represented in stars.
 4. Book store establishment date in DD.MM.YYYY format and website link. The API will return the date in ISO 8601 format.
 5. Book store country flag image. The Book store API will only return a 2-letter ISO 3166-1 country code. Please use https://restcountries.eu/ API to get the flag image for each country code to display. In the event of unavailability of this API, please use any other equivalent API of your choice.
 
@@ -53,8 +53,6 @@ The Book store API contains the `stores`, `books`, `countries`, and `authors` re
         
 The API endpoint that you will need for most of the tasks is: `http://localhost:3000/stores`. This endpoint will return all store resources and related resources within `included` array.
 If you need any other endpoint, check the JSON:API specification. 
-
-If you have any issues with POST request returning errors - please read the first few sections of JSON:API documentation carefully. 
 
 #### Running API:
 - Clone this repo locally

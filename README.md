@@ -64,7 +64,7 @@ If you need any other endpoint, check the JSON:API specification.
 - Instead, create your repository and send that over
 
 #### Rules
-- You can choose between Backbone and React as your main framework.
+- You should use React as your main framework.
 - Don't use JSON:API response normalizer libraries, do it yourself.
 - The project startup procedure must be documented.
 - Javascript should be written in ES6 or above (TypeScript is welcomed).
